@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BedroomgamedevApplication<bedroomgamedev>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.evaluacion.spring.bedroomgamedev.bedroomgamedev.BedroomgamedevApplication",
+            "projectName": "bedroomgamedev",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

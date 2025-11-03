@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}"></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        
+        .settings-section {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+        }
+        
+        .settings-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+        
+        .toggle {
+            width: 50px;
+            height: 25px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .toggle.active {
+            background: #ff6b6b;
+        }
+        
+        .toggle::after {
+            content: '';
+            width: 21px;
+            height: 21px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+        }
+        
+        .toggle.active::after {
+            transform: translateX(25px);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .settings-section {
+                padding: 20px;
+            }
+            
+            .setting-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 th:text="${titulo}">Configuración</h1>
+            <p class="subtitle" th:text="${mensaje}">Personaliza tu experiencia de desarrollo</p>
+        </header>
+        
+        <section class="settings-section">
+            <div class="settings-icon">⚙️</div>
+            <h3>Preferencias del Proyecto</h3>
+            
+            <div class="setting-item">
+                <div>
+                    <strong>Notificaciones</strong>
+                    <p>Recibir alertas sobre el progreso del proyecto</p>
+                </div>
+                <div class="toggle active"></div>
+            </div>
+            
+            <div class="setting-item">
+                <div>
+                    <strong>Modo Oscuro</strong>
+                    <p>Interfaz optimizada para desarrollo nocturno</p>
+                </div>
+                <div class="toggle"></div>
+            </div>
+            
+            <div class="setting-item">
+                <div>
+                    <strong>Auto-guardado</strong>
+                    <p>Guardar cambios automáticamente cada 5 minutos</p>
+                </div>
+                <div class="toggle active"></div>
+            </div>
+        </section>
+        
+        <section class="settings-section">
+            <div class="settings-icon">🛠️</div>
+            <h3>Herramientas de Desarrollo</h3>
+            
+            <div class="setting-item">
+                <div>
+                    <strong>Debug Mode</strong>
+                    <p>Mostrar información detallada de depuración</p>
+                </div>
+                <div class="toggle"></div>
+            </div>
+            
+            <div class="setting-item">
+                <div>
+                    <strong>Compilación Rápida</strong>
+                    <p>Optimizar tiempos de compilación del juego</p>
+                </div>
+                <div class="toggle active"></div>
+            </div>
+        </section>
+        
+        <div style="text-align: center; padding: 20px 0;">
+            <button class="btn">Guardar Cambios</button>
+        </div>
+    </div>
+</body>
+</html>
