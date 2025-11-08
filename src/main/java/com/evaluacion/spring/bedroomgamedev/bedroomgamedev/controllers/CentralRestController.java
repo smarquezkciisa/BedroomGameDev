@@ -40,6 +40,20 @@ public class CentralRestController {
         settingsModel.addAttribute("mensaje","Hola!, aquì podrás encontrar los ajustes de tu cuenta y del portal");
         return "settings";
     }
+
+    @GetMapping("/register")
+    public String register(Model registerModel) {
+        registerModel.addAttribute("titulo","register");
+        registerModel.addAttribute("mensaje","Hola!, aquì podrás registrar tu cuenta");
+        return "register";
+    }
+
+    @GetMapping("/recover")
+    public String recover(Model recoverModel) {
+        recoverModel.addAttribute("titulo","recover");
+        recoverModel.addAttribute("mensaje","Hola!, aquì podrás recuperar tu cuenta");
+        return "recover";
+    }
     
 
 }
