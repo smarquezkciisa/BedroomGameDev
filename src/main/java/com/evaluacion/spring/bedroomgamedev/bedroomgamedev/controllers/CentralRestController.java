@@ -10,8 +10,7 @@ public class CentralRestController {
 
     @GetMapping("/")
     public String landing(Model landingModel) {
-        landingModel.addAttribute("titulo","Landing Page");
-        landingModel.addAttribute("mensaje","Bienvenido a nuestro sitio, esta es la página de bienvenida");
+        landingModel.addAttribute("titulo","BedroomGamedev");
         return "landing";
     }
     

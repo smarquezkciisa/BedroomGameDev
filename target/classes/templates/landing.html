@@ -1,120 +1,19 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${titulo}"></title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 80px 0;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            margin-bottom: 50px;
-        }
-        
-        .hero-section {
-            text-align: center;
-            padding: 40px 0;
-        }
-        
-        .hero-card {
-            background: rgba(255,255,255,0.1);
-            padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .hero-icon {
-            font-size: 4rem;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 18px 40px;
-            background: #ff6b6b;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
-            margin-top: 30px;
-        }
-        
-        .btn:hover {
-            background: #ff5252;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,107,107,0.4);
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-            
-            .hero-card {
-                padding: 30px 20px;
-            }
-            
-            header {
-                padding: 40px 0;
-            }
-        }
-    </style>
-</head>
+<html lang="es" xmlns="http://www.thymeleaf.org " data-bs-theme="dark">
+
+<head th:replace="~{fragments/fragments :: head}"></head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1 th:text="${titulo}">Bienvenido</h1>
-            <p class="subtitle" th:text="${mensaje}">Tu aventura en el desarrollo de videojuegos comienza aquí</p>
-        </header>
-        
-        <section class="hero-section">
-            <div class="hero-card">
-                <div class="hero-icon">🚀</div>
-                <h2>¡Comienza tu Proyecto!</h2>
-                <p>Transforma tus ideas en experiencias de juego únicas. Desde el concepto hasta el lanzamiento, te acompañamos en cada paso del desarrollo.</p>
-                <a href="#" class="btn">Explorar Servicios</a>
-            </div>
-        </section>
-    </div>
+
+    <div th:replace="~{fragments/fragments :: navbar}"></div>
+    <div th:replace="~{fragments/fragments :: hero}"></div>
+    <div th:replace="~{fragments/fragments :: heroCarousell}"></div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
