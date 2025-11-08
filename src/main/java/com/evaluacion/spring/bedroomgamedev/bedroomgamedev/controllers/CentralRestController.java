@@ -11,6 +11,12 @@ public class CentralRestController {
     @GetMapping("/")
     public String landing(Model landingModel) {
         landingModel.addAttribute("titulo","BedroomGamedev");
+        landingModel.addAttribute("carousellTitulo1","Diseño de Sonido");
+        landingModel.addAttribute("carousellTitulo2","Programación");
+        landingModel.addAttribute("carousellTitulo3","World Design");
+        landingModel.addAttribute("carousellTexto1","Producción y diseño de sonido, compresión, ecualización, gain staging");
+        landingModel.addAttribute("carousellTexto2","Recursos educativos para el aprendizaje de diferentes lenguajes de programación");
+        landingModel.addAttribute("carousellTexto3","Explora los mundos en juegos existentes y estudia el arte y las influencias que dan forma a sus temas y estilos.");
         return "landing";
     }
     

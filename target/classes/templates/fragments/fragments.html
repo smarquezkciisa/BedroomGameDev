@@ -2,14 +2,20 @@
 <html lang="es" xmlns="http://www.thymeleaf.org">
 
 <!-- head -->
-
 <head th:fragment="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${titulo}"></title>
     <link rel="icon" th:href="@{/images/favicon.png}" type="image/png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background: url('/images/landingBackground.png') center/cover no-repeat fixed;
+            min-height: 100vh;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <!-- navbar -->
@@ -30,55 +36,131 @@
 </div>
 
 <!-- hero -->
-<div th:fragment="hero" class="container col-xxl-8">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-            <img th:src="@{/images/hero.png}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy">
-        </div>
-        <div class="col-lg-6">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Recursos orientados al aprendizaje autónomo</h1>
-            <p class="lead">¿Sueñas con diseñar mundos, programar mecánicas épicas o dar vida a personajes inolvidables?
+<div th:fragment="hero" class="container px-5 py-5">
+    <div class="row g-4 g-lg-5 align-items-center">
+        <div class="col-12 col-lg-6 order-2 order-lg-1 p-5">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Recursos orientados al aprendizaje autónomo</h1>
+            <p class="lead mb-4">
+                ¿Sueñas con diseñar mundos, programar mecánicas épicas o dar vida a personajes inolvidables?
                 No necesitás un título ni años de espera. Solo necesitás pasión, constancia… y la guía correcta.
-                    
-                Este es un camino abierto, paso a paso, para aprender todo lo que compone un videojuego: programación, diseño, arte, sonido, narrativa, producción y publicación.
-                Sin atajos mágicos. Sin relleno. Solo conocimiento práctico, estructurado y 100% orientado a hacer.</p>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <a href="/login" class="btn btn-primary btn-lg px-4 me-md-2">Ingresar</a>
+            </p>
+            <p class="lead mb-4">
+                Este es un camino abierto, paso a paso, para aprender todo lo que compone un videojuego:
+                programación, diseño, arte, sonido, narrativa, producción y publicación.
+                Sin atajos mágicos. Sin relleno. Solo conocimiento práctico y 100% orientado a hacer.
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-center justify-content-sm-start">
+                <a href="/login" class="btn btn-primary btn-lg px-4">Ingresar</a>
                 <a href="/registro" class="btn btn-outline-secondary btn-lg px-4">Crear Cuenta</a>
             </div>
+        </div>
+        <div class="col-12 col-lg-6 order-1 order-lg-2 text-center">
+            <img th:src="@{/images/hero.png}" class="img-fluid rounded-3 shadow-sm"
+                style="max-width: 100%; height: auto; max-height: 60vh;" alt="Desarrollo de videojuegos" loading="lazy">
         </div>
     </div>
 </div>
 
 <!-- carousel -->
-<div th:fragment="heroCarousell" class="container col-xxl-8">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="3000">
-                    <img src="/images/carousell1.png" class="d-block w-100 rounded-4" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h4 class="text-light fw-bold">First slide label</h4>
-                        <p class="text-light fw-bold">Some representative placeholder content for the first slide.</p>
+<div th:fragment="heroCarousell" class="container col-xxl-8 px-5">
+    <div class="row">
+        <div class="col">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="/images/carousell1.png" class="d-block w-100 h-auto rounded-4" alt="carousell1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h4 th:text="${carousellTitulo1}" class="text-light fw-bold"></h4>
+                            <p th:text="${carousellTexto1}" class="text-light fw-bold"></p>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="/images/carousell2.png" class="d-block w-100 rounded-4" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h4 class="text-light fw-bold">Second slide label</h4>
-                        <p class="text-light fw-bold">Some representative placeholder content for the second slide.</p>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="/images/carousell2.png" class="d-block w-100 h-auto rounded-4" alt="carousell2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h4 th:text="${carousellTitulo2}" class="text-light fw-bold"></h4>
+                            <p th:text="${carousellTexto2}" class="text-light fw-bold"></p>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="/images/carousell3.png" class="d-block w-100 rounded-4" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h4 class="text-dark fw-bold">Third slide label</h4>
-                        <p class="text-dark fw-bold">Some representative placeholder content for the third slide.</p>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="/images/carousell3.png" class="d-block w-100 h-auto rounded-4" alt="carousell3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h4 th:text="${carousellTitulo3}" class="text-dark fw-bold"></h4>
+                            <p th:text="${carousellTexto3}" class="text-dark fw-bold"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- landing cards -->
+<div th:fragment="landingCards" class="container-md p-4">
+    <h3 class="text-center m-5 fw-bold">Aquí podrás encontrar:</h3>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 justify-content-center">
+        <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 100%; max-width: 20rem;">
+                <img src="/images/landingCard1.png" class="card-img-top" alt="landingCard1">
+                <div class="card-body">
+                    <p class="card-text text-center">Assets libres para tus proyectos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 100%; max-width: 20rem;">
+                <img src="/images/landingCard2.png" class="card-img-top" alt="landingCard2">
+                <div class="card-body">
+                    <p class="card-text text-center">Tutoriales para tu desarrollo</p>
+                </div>
+            </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 100%; max-width: 20rem;">
+                <img src="/images/landingCard3.png" class="card-img-top" alt="landingCard3">
+                <div class="card-body">
+                    <p class="card-text text-center">Comunidad en tu mismo camino</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<div th:fragment="footer" class="container mt-5 shadow-lg rounded-4">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top ">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-3 mb-md-0" aria-label="BedroomGamedev">
+                <img th:src="@{/images/logo.svg}" class="me-2" alt="BedroomGamedev" width="50" height="50">
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">
+                &copy; 2025 BedroomGamedev — Aprende creando.
+            </span>
+        </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+                <a class="text-muted" href="/" target="_blank" aria-label="GitHub">
+                    <i class="bi bi-github" style="font-size: 1.4rem;"></i>
+                </a>
+            </li>
+            <li class="ms-3">
+                <a class="text-muted" href="/" target="_blank" aria-label="Discord">
+                    <i class="bi bi-discord" style="font-size: 1.4rem;"></i>
+                </a>
+            </li>
+            <li class="ms-3">
+                <a class="text-muted" href="/" target="_blank" aria-label="YouTube">
+                    <i class="bi bi-youtube" style="font-size: 1.4rem;"></i>
+                </a>
+            </li>
+            <li class="ms-3">
+                <a class="text-muted" href="/" target="_blank" aria-label="Instagram">
+                    <i class="bi bi-instagram" style="font-size: 1.4rem;"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</div>
+
 
 </html>
