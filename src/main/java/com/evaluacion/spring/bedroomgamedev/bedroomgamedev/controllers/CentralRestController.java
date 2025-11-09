@@ -44,14 +44,14 @@ public class CentralRestController {
     @GetMapping("/register")
     public String register(Model registerModel) {
         registerModel.addAttribute("titulo","register");
-        registerModel.addAttribute("mensaje","Hola!, aquì podrás registrar tu cuenta");
+        registerModel.addAttribute("mensaje","Hola!, aquí podrás registrar tu cuenta");
         return "register";
     }
 
     @GetMapping("/recover")
     public String recover(Model recoverModel) {
         recoverModel.addAttribute("titulo","recover");
-        recoverModel.addAttribute("mensaje","Hola!, aquì podrás recuperar tu cuenta");
+        recoverModel.addAttribute("mensaje","Algo salió mal?, Olvidaste tu contraseña?, Puedes ingresar tu correo para que te ayudemos a recuperar tu cuenta <3");
         return "recover";
     }
     

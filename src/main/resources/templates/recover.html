@@ -4,6 +4,11 @@
 <body>
 
     <div th:replace="~{fragments/fragments :: navbar}"></div>
+    <div th:replace="~{fragments/fragments :: logoProblema}"></div>
+    <div class="container col-md-4">
+        <h4 th:text="${mensaje}" class="text-center"></h4>
+    </div>
+    <div th:replace="~{fragments/fragments :: recover}"></div>
     <div th:replace="~{fragments/fragments :: footer}"></div>
     
 </body>
