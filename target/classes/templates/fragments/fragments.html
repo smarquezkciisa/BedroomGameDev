@@ -1,31 +1,144 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.thymeleaf.org">
 
+<!-- scripts head -->
+<div th:fragment="headScripts">
+    <link rel="icon" th:href="@{/images/favicon.png}" type="image/png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</div>
+
+<!-- estilos -->
+<style th:fragment="estilos">
+    body {
+        background: url('/images/landingBackground.png') center/cover no-repeat fixed;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    @keyframes fadeInOut {
+
+        0%,
+        100% {
+            opacity: 0;
+        }
+
+        10%,
+        90% {
+            opacity: 1;
+        }
+    }
+
+    .auto-fade {
+        animation: fadeInOut 1s infinite;
+    }
+
+    .texto-sombreado {
+        text-shadow: 1px 1px 4px rgb(0, 0, 0);
+    }
+
+    .texto-brillante {
+        text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.555);
+    }
+
+    .separador1 {
+        width: 100%;
+        height: 50px;
+    }
+
+    .separador2 {
+        width: 100%;
+        height: 100px;
+    }
+
+    .separador3 {
+        width: 100%;
+        height: 150px;
+    }
+
+    .separador4 {
+        width: 100%;
+        height: 200px;
+    }
+</style>
+
+<!-- alt estilos -->
+<style th:fragment="altEstilos">
+    body {
+        background: url('/images/landingBackground2.png') center/cover no-repeat fixed;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    @keyframes fadeInOut {
+
+        0%,
+        100% {
+            opacity: 0;
+        }
+
+        10%,
+        90% {
+            opacity: 1;
+        }
+    }
+
+    .auto-fade {
+        animation: fadeInOut 1s infinite;
+    }
+
+    .texto-sombreado {
+        text-shadow: 1px 1px 4px rgb(0, 0, 0);
+    }
+
+    .texto-brillante {
+        text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.555);
+    }
+
+    .separador1 {
+        width: 100%;
+        height: 50px;
+    }
+
+    .separador2 {
+        width: 100%;
+        height: 100px;
+    }
+
+    .separador3 {
+        width: 100%;
+        height: 150px;
+    }
+
+    .separador4 {
+        width: 100%;
+        height: 200px;
+    }
+</style>
+
 <!-- head -->
-<head th:fragment="head">
+
+<div th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}"></title>
+    <div th:replace="~{fragments/fragments :: headScripts}"></div>
+    <style th:replace="~{fragments/fragments :: estilos}"></style>
+</div>
+
+<!-- alt head -->
+
+<div th:fragment="altHead">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${titulo}"></title>
     <link rel="icon" th:href="@{/images/favicon.png}" type="image/png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
-        body {
-            background: url('/images/landingBackground.png') center/cover no-repeat fixed;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0; }
-            10%, 90% { opacity: 1; }
-        }
-        .auto-fade {
-            animation: fadeInOut 1s infinite;
-        }
-
-    </style>
-</head>
+    <style th:replace="~{fragments/fragments :: altEstilos}"></style>
+</div>
 
 <!-- navbar -->
 <div th:fragment="navbar" class="container">
@@ -38,8 +151,7 @@
             <li class="nav-item"><a href="/home" class="nav-link active" aria-current="page">Inicio</a></li>
             <li class="nav-item"><a href="/register" class="nav-link">Crear Cuenta</a></li>
             <li class="nav-item"><a href="/login" class="nav-link">Ingresar</a></li>
-            <li class="nav-item"><a href="/settings" class="nav-link">Configuración</a></li>
-            <li class="nav-item"><a href="/about" class="nav-link">Nosotros</a></li>
+            <li class="nav-item"><a href="/nosotros" class="nav-link">Nosotros</a></li>
         </ul>
     </header>
 </div>
@@ -48,12 +160,12 @@
 <div th:fragment="hero" class="container px-5 py-5">
     <div class="row g-4 g-lg-5 align-items-center">
         <div class="col-12 col-lg-6 order-2 order-lg-1 p-5">
-            <h1 class="display-5 fw-bold lh-1 mb-3">Recursos orientados al aprendizaje autónomo</h1>
-            <p class="lead mb-4">
+            <h1 class="display-5 fw-bold lh-1 mb-3 texto-brillante">Recursos orientados al aprendizaje autónomo</h1>
+            <p class="lead mb-4 texto-sombreado">
                 ¿Sueñas con diseñar mundos, programar mecánicas épicas o dar vida a personajes inolvidables?
                 No necesitás un título ni años de espera. Solo necesitás pasión, constancia… y la guía correcta.
             </p>
-            <p class="lead mb-4">
+            <p class="lead mb-4 texto-sombreado">
                 Este es un camino abierto, paso a paso, para aprender todo lo que compone un videojuego:
                 programación, diseño, arte, sonido, narrativa, producción y publicación.
                 Sin atajos mágicos. Sin relleno. Solo conocimiento práctico y 100% orientado a hacer.
@@ -79,22 +191,22 @@
                     <div class="carousel-item active" data-bs-interval="2000">
                         <img src="/images/carousell1.png" class="d-block w-100 h-auto rounded-4" alt="carousell1">
                         <div class="carousel-caption d-none d-md-block">
-                            <h4 th:text="${carousellTitulo1}" class="text-light fw-bold"></h4>
-                            <p th:text="${carousellTexto1}" class="text-light fw-bold"></p>
+                            <h4 th:text="${carousellTitulo1}" class="text-light fw-bold texto-sombreado"></h4>
+                            <p th:text="${carousellTexto1}" class="text-light texto-sombreado"></p>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
                         <img src="/images/carousell2.png" class="d-block w-100 h-auto rounded-4" alt="carousell2">
                         <div class="carousel-caption d-none d-md-block">
-                            <h4 th:text="${carousellTitulo2}" class="text-light fw-bold"></h4>
-                            <p th:text="${carousellTexto2}" class="text-light fw-bold"></p>
+                            <h4 th:text="${carousellTitulo2}" class="text-light fw-bold texto-sombreado"></h4>
+                            <p th:text="${carousellTexto2}" class="text-light texto-sombreado"></p>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
                         <img src="/images/carousell3.png" class="d-block w-100 h-auto rounded-4" alt="carousell3">
                         <div class="carousel-caption d-none d-md-block">
-                            <h4 th:text="${carousellTitulo3}" class="text-dark fw-bold"></h4>
-                            <p th:text="${carousellTexto3}" class="text-dark fw-bold"></p>
+                            <h4 th:text="${carousellTitulo3}" class="text-light fw-bold texto-sombreado"></h4>
+                            <p th:text="${carousellTexto3}" class="text-light texto-sombreado"></p>
                         </div>
                     </div>
                 </div>
@@ -105,33 +217,40 @@
 
 <!-- landing cards -->
 <div th:fragment="landingCards" class="container-md p-4">
-    <h3 class="text-center m-5 fw-bold">Aquí podrás encontrar:</h3>
+
+    <h3 class="text-center m-5 fw-bold texto-brillante">Aquí podrás encontrar:</h3>
+
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 justify-content-center">
+
         <div class="col d-flex justify-content-center">
-            <div class="card" style="width: 100%; max-width: 20rem;">
-                <img src="/images/landingCard1.png" class="card-img-top" alt="landingCard1">
+            <div class="card rounded-4" style="width: 100%; max-width: 20rem;">
+                <img src="/images/landingCard1.png" class="card-img-top rounded-4" alt="landingCard1">
                 <div class="card-body">
                     <p class="card-text text-center">Assets libres para tus proyectos</p>
                 </div>
             </div>
         </div>
+
         <div class="col d-flex justify-content-center">
-            <div class="card" style="width: 100%; max-width: 20rem;">
-                <img src="/images/landingCard2.png" class="card-img-top" alt="landingCard2">
+            <div class="card rounded-4" style="width: 100%; max-width: 20rem;">
+                <img src="/images/landingCard2.png" class="card-img-top rounded-4" alt="landingCard2">
                 <div class="card-body">
                     <p class="card-text text-center">Tutoriales para tu desarrollo</p>
                 </div>
             </div>
         </div>
+
         <div class="col d-flex justify-content-center">
-            <div class="card" style="width: 100%; max-width: 20rem;">
-                <img src="/images/landingCard3.png" class="card-img-top" alt="landingCard3">
+            <div class="card rounded-4" style="width: 100%; max-width: 20rem;">
+                <img src="/images/landingCard3.png" class="card-img-top rounded-4" alt="landingCard3">
                 <div class="card-body">
                     <p class="card-text text-center">Comunidad en tu mismo camino</p>
                 </div>
             </div>
         </div>
+
     </div>
+
 </div>
 
 <!-- footer -->
@@ -168,7 +287,43 @@
             </li>
         </ul>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+</div>
+
+<!-- altFooter -->
+<div th:fragment="altFooter" class="container-fluid bg-secondary fixed-bottom">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center border-top ">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-3 mb-md-0" aria-label="BedroomGamedev">
+                <img th:src="@{/images/logo.svg}" class="me-2" alt="BedroomGamedev" width="50" height="50">
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">
+                &copy; 2025 BedroomGamedev — Go touch grass!!!
+            </span>
+        </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+                <a class="text-muted" href="/" target="_blank" aria-label="GitHub">
+                    <i class="bi bi-github" style="font-size: 1.4rem;"></i>
+                </a>
+            </li>
+            <li class="ms-3">
+                <a class="text-muted" href="/" target="_blank" aria-label="Discord">
+                    <i class="bi bi-discord" style="font-size: 1.4rem;"></i>
+                </a>
+            </li>
+            <li class="ms-3">
+                <a class="text-muted" href="/" target="_blank" aria-label="YouTube">
+                    <i class="bi bi-youtube" style="font-size: 1.4rem;"></i>
+                </a>
+            </li>
+            <li class="ms-3">
+                <a class="text-muted" href="/" target="_blank" aria-label="Instagram">
+                    <i class="bi bi-instagram" style="font-size: 1.4rem;"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
 </div>
 
 <!-- logo animated -->
@@ -184,7 +339,7 @@
         </div>
     </div>
     <div class="container col-md-4">
-        <h4 th:text="${mensaje}" class="text-center"></h4>
+        <h4 th:text="${mensaje}" class="text-center texto-brillante"></h4>
     </div>
 </div>
 
@@ -192,60 +347,62 @@
 <div th:fragment="login" class="container col-md-4 mt-5 mb-5">
     <form class="px-4 py-3">
         <div class="mb-3">
-            <label for="exampleDropdownFormEmail1" class="form-label">Correo electrónico</label>
+            <label for="exampleDropdownFormEmail1" class="form-label texto-sombreado">Correo electrónico</label>
             <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@ejemplo.com">
         </div>
         <div class="mb-3">
-            <label for="exampleDropdownFormPassword1" class="form-label">Contraseña</label>
+            <label for="exampleDropdownFormPassword1" class="form-label texto-sombreado">Contraseña</label>
             <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña">
         </div>
         <div class="mb-3">
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">Recuerdame</label>
+                <label class="form-check-label texto-sombreado" for="dropdownCheck">Recuerdame</label>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Ingresar</button>
+        <a class="btn btn-primary" href="/home" role="button">Ingresar</a>
     </form>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="/register">Es tu primera vez aquí? Crea una cuenta</a>
-    <a class="dropdown-item" href="/recover">Olvidaste tu contraseña?</a>
+    <a class="dropdown-item texto-sombreado" href="/register">Es tu primera vez aquí? Crea una cuenta</a>
+    <a class="dropdown-item texto-sombreado" href="/recover">Olvidaste tu contraseña?</a>
 </div>
 
 <!-- register -->
 <div th:fragment="register" class="container col-md-4 mt-5 mb-5">
     <form class="px-4 py-3">
         <div class="mb-3">
-            <label for="exampleDropdownFormName1" class="form-label">Nombre Completo</label>
-            <input type="text" class="form-control" id="exampleDropdownFormName1" placeholder="Juan Juan Perez SnoopDogg">
+            <label for="exampleDropdownFormName1" class="form-label texto-sombreado">Nombre Completo</label>
+            <input type="text" class="form-control" id="exampleDropdownFormName1"
+                placeholder="Juan Juan Perez SnoopDogg">
         </div>
         <div class="mb-3">
-            <label for="exampleDropdownFormDate1" class="form-label">Fecha de Nacimiento</label>
+            <label for="exampleDropdownFormDate1" class="form-label texto-sombreado">Fecha de Nacimiento</label>
             <input type="date" class="form-control" id="exampleDropdownFormDate1" placeholder="01/01/2000">
         </div>
         <div class="mb-3">
-            <label for="exampleDropdownFormEmail1" class="form-label">Correo electrónico</label>
+            <label for="exampleDropdownFormEmail1" class="form-label texto-sombreado">Correo electrónico</label>
             <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@ejemplo.com">
         </div>
         <div class="mb-3">
-            <label for="exampleDropdownFormPassword1" class="form-label">Contraseña</label>
+            <label for="exampleDropdownFormPassword1" class="form-label texto-sombreado">Contraseña</label>
             <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña">
         </div>
         <div class="mb-3">
-            <label for="exampleDropdownFormPassword2" class="form-label">confirmar contraseña</label>
+            <label for="exampleDropdownFormPassword2" class="form-label texto-sombreado">confirmar contraseña</label>
             <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña">
         </div>
         <div class="mb-3">
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">Estoy de acuerdo con los terminos y condiciones</label>
+                <label class="form-check-label texto-sombreado" for="dropdownCheck">Estoy de acuerdo con los terminos y
+                    condiciones</label>
             </div>
         </div>
         <!-- <button type="submit" class="btn btn-primary">Registrar</button> -->
         <a class="btn btn-primary" href="/login" role="button">Registrar</a>
     </form>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="/login">Ya tienes una cuenta? Ingresa aquí</a>
+    <a class="dropdown-item texto-sombreado" href="/login">Ya tienes una cuenta? Ingresa aquí</a>
 </div>
 
 <!-- logo problema -->
@@ -270,13 +427,195 @@
         <a class="btn btn-primary" href="/login" role="button">Recuperar</a>
     </form>
     <div class="dropdown-divider"></div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="separador3"></div>
+</div>
+
+<!-- logo large -->
+<div th:fragment="logoLarge">
+    <div class="container col-md-4 mt-5 p-5">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <img src="/images/logoLarge.png" class="img-fluid" alt="LogoProblema">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hamburguesa sidebar -->
+<button th:fragment="hamburguesaSidebar" class="btn btn-light shadow-sm m-2" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#sidebar">
+    <i class="bi bi-list"></i>
+</button>
+
+<!-- sidebar -->
+<div th:fragment="sidebar" class="offcanvas offcanvas-start w-280" id="sidebar">
+    <div class="offcanvas-header">
+        <img th:src="@{/images/logo.svg}" class="me-2" alt="BedroomGamedev" width="50" height="50">
+        <h5 class="mb-0">BedroomGamedev</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <ul class="list-unstyled">
+
+            <!-- simple -->
+            <li>
+                <a href="/home" class="d-flex align-items-center px-3 py-2 text-decoration-none text-body">
+                    <i class="bi bi-house me-2"></i> Home
+                </a>
+            </li>
+
+            <!-- compuesto -->
+            <li>
+                <button
+                    class="btn btn-toggle d-flex align-items-center w-100 text-start px-3 py-2 border-0 bg-transparent collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#tutoriales">
+                    <i class="bi bi-book me-2"></i> Tutoriales
+                </button>
+                <div class="collapse" id="tutoriales">
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-list-ol me-2"></i>Todo</a>
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-book me-2"></i>Programación</a>
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-music-note-beamed me-2"></i>Audio</a>
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-camera-video me-2"></i>Video</a>
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-brush me-2"></i>Diseño</a>
+
+                </div>
+            </li>
+
+            <!-- compuesto -->
+            <li>
+                <button
+                    class="btn btn-toggle d-flex align-items-center w-100 text-start px-3 py-2 border-0 bg-transparent collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#assets">
+                    <i class="bi bi-bag me-2"></i> Assets
+                </button>
+                <div class="collapse" id="assets">
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-list-ol me-2"></i>Todo</a>
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-type-underline me-2"></i>Unreal</a>
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-6-circle me-2"></i>Godot</a>
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-unity me-2"></i>Unity</a>
+                    <a href="/tutoriales" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-r-circle-fill me-2"></i>RpgMaker</a>
+
+                </div>
+            </li>
+
+            <!-- simple -->
+            <li>
+                <a href="/tutoriales" class="d-flex align-items-center px-3 py-2 text-decoration-none text-body">
+                    <i class="bi bi bi-calendar-date me-2"></i>Eventos
+                </a>
+            </li>
+
+            <!-- compuesto -->
+            <li>
+                <button
+                    class="btn btn-toggle d-flex align-items-center w-100 text-start px-3 py-2 border-0 bg-transparent collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#compartir">
+                    <i class="bi bi-share-fill me-2"></i> Compartir
+                </button>
+                <div class="collapse" id="compartir">
+                    <a href="/añadir" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-book me-2"></i>Tutoriales</a>
+                    <a href="/añadir" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-bag me-2"></i>Assets</a>
+                    <a href="/añadir" class="d-block px-5 py-2 text-decoration-none text-body"><i
+                            class="bi bi-calendar-date me-2"></i>Eventos</a>
+                </div>
+            </li>
+
+            <!-- simple -->
+            <li>
+                <a href="/settings" class="d-flex align-items-center px-3 py-2 text-decoration-none text-body">
+                    <i class="bi bi-gear me-2"></i> Configuración
+                </a>
+            </li>
+
+            <!-- simple -->
+            <li>
+                <a href="/" class="d-flex align-items-center px-3 py-2 text-decoration-none text-body">
+                    <i class="bi bi-door-closed"></i> Salir
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<!-- titulo -->
+<div th:fragment="titulo">
+    <div class="container p-5 mt-5">
+        <div class="col-md-4">
+            <h1 th:text="${titulo}" class="display-5 fw-bold lh-1 mb-3 texto-brillante"></h1>
+        </div>
+        <div class="col-md-4 mt-5 mb-5">
+            <p th:text="${mensaje}" class="text-light texto-sombreado"></p>
+        </div>
+    </div>
+</div>
+
+<!-- tutoriales card -->
+<div th:fragment="tutorialesCard">
+    <div class="card rounded-4" style="max-width: 1280px;">
+        <div class="row g-0 align-items-center">
+            <div class="col-auto">
+                <img src="https://picsum.photos/200/200" class="rounded-4" alt="imgCard">
+            </div>
+            <div class="col ps-2 m-4">
+                <h6 th:text="${elemento}" class="mb-1 fw-bold texto-brillante"></h6>
+                <p th:text="${elementoTipo}" class="text-muted small mb-1 texto-brillante"></p>
+                <p th:text="${elementoDescripcion}" class="text-muted small mb-1"></p>
+                <a href="/home" class="btn btn-sm btn-outline-primary px-2 py-0">Ver</a>
+            </div>
+        </div>
+    </div>
+    <div class="separador2"></div>
+    <div class="card rounded-4" style="max-width: 1280px;">
+        <div class="row g-0 align-items-center">
+            <div class="col-auto">
+                <img src="https://picsum.photos/201/202" class="rounded-4" alt="imgCard">
+            </div>
+            <div class="col ps-2 m-4">
+                <h6 th:text="${elemento}" class="mb-1 fw-bold texto-brillante"></h6>
+                <p th:text="${elementoTipo}" class="text-muted small mb-1 texto-brillante"></p>
+                <p th:text="${elementoDescripcion}" class="text-muted small mb-1"></p>
+                <a href="/home" class="btn btn-sm btn-outline-primary px-2 py-0">Ver</a>
+            </div>
+        </div>
+    </div>
+    <div class="separador2"></div>
+</div>
+
+<!-- añadir elemento -->
+<div th:fragment="añadir">
+    <div class="container col-md-4">
+        <div class="row justify-content-center mb-5">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Tipo</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Tipo">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="25"></textarea>
+            </div>
+            <div class="mb-3">
+                <a class="btn btn-primary" href="/home" role="button">Compartir</a>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 </html>

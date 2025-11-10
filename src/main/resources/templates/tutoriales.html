@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.thymeleaf.org " data-bs-theme="dark">
+
+<head th:replace="~{fragments/fragments :: altHead}"></head>
+
+<body>
+
+    <button th:replace="~{fragments/fragments :: hamburguesaSidebar}"></button>
+    <div th:replace="~{fragments/fragments :: sidebar}"></div>
+    <div th:replace="~{fragments/fragments :: titulo}"></div>
+
+
+    <div class="container col-md-8">
+
+        <div th:replace="~{fragments/fragments :: tutorialesCard}"></div>
+        <div th:replace="~{fragments/fragments :: tutorialesCard}"></div>
+        <div th:replace="~{fragments/fragments :: tutorialesCard}"></div>
+        <div th:replace="~{fragments/fragments :: tutorialesCard}"></div>
+        <div th:replace="~{fragments/fragments :: tutorialesCard}"></div>
+        
+    </div>
+
+    
+
+    <div th:replace="~{fragments/fragments :: altFooter}"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

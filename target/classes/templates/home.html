@@ -1,10 +1,96 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.thymeleaf.org " data-bs-theme="dark">
-<head th:replace="~{fragments/fragments :: head}"></head>
+
+<head th:replace="~{fragments/fragments :: altHead}"></head>
+
 <body>
 
-    <div th:replace="~{fragments/fragments :: navbar}"></div>
-    <div th:replace="~{fragments/fragments :: footer}"></div>
-    
+    <button th:replace="~{fragments/fragments :: hamburguesaSidebar}"></button>
+    <div th:replace="~{fragments/fragments :: sidebar}"></div>
+    <div th:replace="~{fragments/fragments :: titulo}"></div>
+
+    <div class="container col-md-8">
+
+        <div class="card rounded-4" style="max-width: 1280px;">
+            <div class="row g-0 align-items-center">
+                <div class="col-auto">
+                    <img src="https://picsum.photos/200/200" class="rounded-4" alt="imgCard">
+                </div>
+                <div class="col ps-2 m-4">
+                    <h6 th:text="${elemento1}" class="mb-1 fw-bold texto-brillante"></h6>
+                    <p th:text="${nombreElemento1}" class="text-muted small mb-1 texto-brillante"></p>
+                    <p class="text-muted small mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt nemo, saepe, hic fuga eveniet maxime ad soluta, nesciunt animi reiciendis provident error neque vero quam autem nihil quidem nobis ipsum.</p>
+                    <a href="/home" class="btn btn-sm btn-outline-primary px-2 py-0">Ver</a>
+                </div>
+            </div>
+        </div>
+        <div class="separador2"></div>
+
+        <div class="card rounded-4" style="max-width: 1280px;">
+            <div class="row g-0 align-items-center">
+                <div class="col-auto">
+                    <img src="https://picsum.photos/201/201" class="rounded-4" alt="imgCard">
+                </div>
+                <div class="col ps-2 m-4">
+                    <h6 th:text="${elemento2}" class="mb-1 fw-bold texto-brillante"></h6>
+                    <p th:text="${nombreElemento2}" class="text-muted small mb-1 texto-brillante"></p>
+                    <p class="text-muted small mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt nemo, saepe, hic fuga eveniet maxime ad soluta, nesciunt animi reiciendis provident error neque vero quam autem nihil quidem nobis ipsum.</p>
+                    <a href="/home" class="btn btn-sm btn-outline-primary px-2 py-0">Ver</a>
+                </div>
+            </div>
+        </div>
+        <div class="separador2"></div>
+
+        <div class="card rounded-4" style="max-width: 1280px;">
+            <div class="row g-0 align-items-center">
+                <div class="col-auto">
+                    <img src="https://picsum.photos/202/202" class="rounded-4" alt="imgCard">
+                </div>
+                <div class="col ps-2 m-4">
+                    <h6 th:text="${elemento3}" class="mb-1 fw-bold texto-brillante"></h6>
+                    <p th:text="${nombreElemento3}" class="text-muted small mb-1 texto-brillante"></p>
+                    <p class="text-muted small mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt nemo, saepe, hic fuga eveniet maxime ad soluta, nesciunt animi reiciendis provident error neque vero quam autem nihil quidem nobis ipsum.</p>
+                    <a href="/home" class="btn btn-sm btn-outline-primary px-2 py-0">Ver</a>
+                </div>
+            </div>
+        </div>
+        <div class="separador2"></div>
+
+        <div class="card rounded-4" style="max-width: 1280px;">
+            <div class="row g-0 align-items-center">
+                <div class="col-auto">
+                    <img src="https://picsum.photos/203/203" class="rounded-4" alt="imgCard">
+                </div>
+                <div class="col ps-2 m-4">
+                    <h6 th:text="${elemento4}" class="mb-1 fw-bold texto-brillante"></h6>
+                    <p th:text="${nombreElemento4}" class="text-muted small mb-1 texto-brillante"></p>
+                    <p class="text-muted small mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt nemo, saepe, hic fuga eveniet maxime ad soluta, nesciunt animi reiciendis provident error neque vero quam autem nihil quidem nobis ipsum.</p>
+                    <a href="/home" class="btn btn-sm btn-outline-primary px-2 py-0">Ver</a>
+                </div>
+            </div>
+        </div>
+        <div class="separador2"></div>
+
+        <div class="card rounded-4" style="max-width: 1280px;">
+            <div class="row g-0 align-items-center">
+                <div class="col-auto">
+                    <img src="https://picsum.photos/204/204" class="rounded-4" alt="imgCard">
+                </div>
+                <div class="col ps-2 m-4">
+                    <h6 th:text="${elemento5}" class="mb-1 fw-bold texto-brillante"></h6>
+                    <p th:text="${nombreElemento5}" class="text-muted small mb-1 texto-brillante"></p>
+                    <p class="text-muted small mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt nemo, saepe, hic fuga eveniet maxime ad soluta, nesciunt animi reiciendis provident error neque vero quam autem nihil quidem nobis ipsum.</p>
+                    <a href="/home" class="btn btn-sm btn-outline-primary px-2 py-0">Ver</a>
+                </div>
+            </div>
+        </div>
+        <div class="separador2"></div>
+
+    </div>
+
+    <div th:replace="~{fragments/fragments :: altFooter}"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
